@@ -1,0 +1,22 @@
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  
+# command to install dependencies
+install:
+  - pip install requirements.txt
+  
+# command to run tests
+script:
+  - pytest --cov=yard
+  
+# Push the results back to codecov
+after_success:
+- codecov  
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
