@@ -4,9 +4,15 @@ python:
   - "3.6"
   - "3.7"
   
+services:
+  - docker
+  
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+
+before_install:
+- docker run -t ghdl/ghdl:stretch-mcode ghdl --version
   
 # command to run tests
 script:
