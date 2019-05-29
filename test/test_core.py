@@ -16,7 +16,7 @@ def test_main():
     
     
 def test_docker():    
-    cmd = 'docker pull ghdl/ghdl'
+    cmd = 'docker run -t ghdl/ghdl:stretch-mcode ghdl --version'
     
     # Pytest asserts the non-zero return status of subprocess
     out = subprocess.check_output(cmd.split(' '))
