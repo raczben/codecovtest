@@ -15,9 +15,9 @@ before_install:
 - docker run -t ghdl/ghdl:stretch-mcode ghdl --version
 - docker run -t -v `pwd`/test:/mnt/data ghdl/ghdl:stretch-mcode ls -al
 - docker run -t -v `pwd`/test:/mnt/data ghdl/ghdl:stretch-mcode ls /mnt/data
-- docker run -t -v `pwd`/test:/mnt/data ghdl/ghdl:stretch-mcode ghdl -a /mnt/data/hw.vhd
-- docker run -t -v `pwd`/test:/mnt/data ghdl/ghdl:stretch-mcode ghdl -e hello_world
-- docker run -t -v `pwd`/test:/mnt/data ghdl/ghdl:stretch-mcode ghdl -r hello_world
+- docker run -t -v `pwd`/test:/mnt/data cd /mnt/data/; ghdl/ghdl:stretch-mcode ghdl -a hw.vhd
+- docker run -t -v `pwd`/test:/mnt/data cd /mnt/data/; ghdl/ghdl:stretch-mcode ghdl -e hello_world
+- docker run -t -v `pwd`/test:/mnt/data cd /mnt/data/; ghdl/ghdl:stretch-mcode ghdl -r hello_world
   
 # command to run tests
 script:
