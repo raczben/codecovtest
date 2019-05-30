@@ -1,3 +1,5 @@
+-- From: https://ghdl.readthedocs.io/en/latest/using/QuickStartGuide.html
+
 --  Hello world program
 use std.textio.all; -- Imports the standard textio package.
 
