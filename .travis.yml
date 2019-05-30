@@ -1,8 +1,6 @@
-dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.6"
-  - "3.7"
   
 services:
   - docker
@@ -11,21 +9,13 @@ services:
 install:
   - pip install -r requirements.txt
 
-before_install:
+script:
     # Testing the installation of the ghdl
   - docker run -t ghdl/ghdl:stretch-mcode ghdl --version
     # Mount the repo to docker, and run the hello word example.
   - docker run -t -v `pwd`:/mnt/data ghdl/ghdl:stretch-mcode  /bin/bash -c /mnt/data/compile.sh
     # Mount the repo to docker, and run the hello word script.
   - docker run -t -v `pwd`:/mnt/data ghdl/ghdl:stretch-mcode  /bin/bash -c /mnt/data/addre.sh
-
-# command to run tests
-script:
-  - pytest --cov=cct
-  
-# Push the results back to codecov
-after_success:
-- codecov  
 
 notifications:
   email:
